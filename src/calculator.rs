@@ -39,7 +39,13 @@ fn get_number() -> f32 {
         .read_line(&mut number)
         .expect("Failed to read line");
 
-    let number: f32 = number.trim().parse().expect("Please enter a valid number!");
+    let number: f32 = match number.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a valid number!");
+            get_number()
+        }
+    };
 
     return number;
 }
