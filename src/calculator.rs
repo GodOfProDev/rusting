@@ -1,9 +1,10 @@
 use std::io;
+use crate::utils;
 
 pub fn calculator() {
     println!("Enter the first number: ");
 
-    let first_number = get_number();
+    let first_number = utils::get_number_f32();
 
     let mut operator = String::new();
 
@@ -19,7 +20,7 @@ pub fn calculator() {
 
     println!("Enter the second number: ");
 
-    let second_number = get_number();
+    let second_number = utils::get_number_f32();
 
     match operator {
         '*' => println!("Result: {}", first_number * second_number),
@@ -32,20 +33,4 @@ pub fn calculator() {
     }
 }
 
-fn get_number() -> f32 {
-    let mut number = String::new();
 
-    io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read line");
-
-    let number: f32 = match number.trim().parse() {
-        Ok(num) => num,
-        Err(_) => {
-            println!("Please enter a valid number!");
-            get_number()
-        }
-    };
-
-    return number;
-}

@@ -3,6 +3,8 @@ use std::io;
 
 use rand::Rng;
 
+use crate::utils;
+
 pub fn guess_game() {
     println!("Guess Game!");
 
@@ -10,7 +12,7 @@ pub fn guess_game() {
 
     loop {
         println!("Enter your guess: ");
-        let guess = get_number();
+        let guess = utils::get_number_i32();
 
         match guess.cmp(&secret_number) {
             Ordering::Equal => {
@@ -21,22 +23,4 @@ pub fn guess_game() {
             Ordering::Greater => println!("Too big!"),
         }
     }
-}
-
-fn get_number() -> i32 {
-    let mut number = String::new();
-
-    io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read line");
-
-    let number: i32 = match number.trim().parse() {
-        Ok(num) => num,
-        Err(_) => {
-            println!("Please enter a valid number!");
-            get_number()
-        }
-    };
-
-    return number;
 }
