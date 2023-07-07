@@ -1,4 +1,3 @@
-use std::io;
 use crate::utils;
 
 pub fn calculator() {
@@ -6,13 +5,9 @@ pub fn calculator() {
 
     let first_number = utils::get_number_f32();
 
-    let mut operator = String::new();
+    println!("Enter the operator: ");
 
-    io::stdin()
-        .read_line(&mut operator)
-        .expect("Failed to read line");
-
-    let operator = operator
+    let operator = utils::get_string()
         .trim()
         .chars()
         .nth(0)

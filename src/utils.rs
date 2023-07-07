@@ -35,3 +35,13 @@ pub fn get_number_f32() -> f32 {
 
     return number;
 }
+
+pub fn get_string() -> String {
+    let mut string = String::new();
+
+    io::stdin()
+        .read_line(&mut string)
+        .expect("Failed to read line");
+
+    return string;
+}
