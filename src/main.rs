@@ -5,11 +5,13 @@ mod calculator;
 mod guess_game;
 mod utils;
 mod temperature_converter;
+mod fibonacci_sequence;
 
 enum Projects {
     Calculator = 1,
     GuessGame = 2,
-    TemperatureConverter = 3
+    TemperatureConverter = 3,
+    FibonacciSequence = 4
 }
 
 impl Projects {
@@ -18,6 +20,7 @@ impl Projects {
             1 => Some(Projects::Calculator),
             2 => Some(Projects::GuessGame),
             3 => Some(Projects::TemperatureConverter),
+            4 => Some(Projects::FibonacciSequence),
             _ => {
                 None
             }
@@ -31,7 +34,10 @@ fn main() {
 
         println!("\t1.Calculator");
         println!("\t2.Guess Game");
-        println!("\t2.Temperature Converter");
+        println!("\t3.Temperature Converter");
+        println!("\t4.Fibonacci Sequence");
+
+        println!();
 
         println!("Enter the corresponding number.");
 
@@ -53,6 +59,11 @@ fn main() {
                     Projects::TemperatureConverter => {
                         clear_screen();
                         temperature_converter::temperature_convertor();
+                        break;
+                    }
+                    Projects::FibonacciSequence => {
+                        clear_screen();
+                        fibonacci_sequence::fibonacci_sequence();
                         break;
                     }
                 }
