@@ -1,47 +1,35 @@
 use std::io;
+use std::str::FromStr;
 
-pub fn get_number_i32() -> i32 {
-    let mut number = String::new();
+pub trait ValidInputTrait: FromStr {}
+
+impl ValidInputTrait for u16 {}
+impl ValidInputTrait for u32 {}
+impl ValidInputTrait for u64 {}
+
+impl ValidInputTrait for i16 {}
+impl ValidInputTrait for i32 {}
+impl ValidInputTrait for i64 {}
+
+impl ValidInputTrait for f32 {}
+impl ValidInputTrait for f64 {}
+
+impl ValidInputTrait for String {}
+
+pub fn get_input<T: ValidInputTrait>() -> T {
+    let mut input = String::new();
 
     io::stdin()
-        .read_line(&mut number)
+        .read_line(&mut input)
         .expect("Failed to read line");
 
-    let number: i32 = match number.trim().parse() {
+    let input: T = match input.trim().parse() {
         Ok(num) => num,
         Err(_) => {
             println!("Please enter a valid number!");
-            get_number_i32()
+            get_input()
         }
     };
 
-    return number;
-}
-
-pub fn get_number_f32() -> f32 {
-    let mut number = String::new();
-
-    io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read line");
-
-    let number: f32 = match number.trim().parse() {
-        Ok(num) => num,
-        Err(_) => {
-            println!("Please enter a valid number!");
-            get_number_f32()
-        }
-    };
-
-    return number;
-}
-
-pub fn get_string() -> String {
-    let mut string = String::new();
-
-    io::stdin()
-        .read_line(&mut string)
-        .expect("Failed to read line");
-
-    return string;
+    return input;
 }

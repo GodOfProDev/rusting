@@ -11,7 +11,7 @@ pub fn guess_game() {
 
     loop {
         println!("Enter your guess: ");
-        let guess = utils::get_number_i32();
+        let guess: i32 = utils::get_input();
 
         match guess.cmp(&secret_number) {
             Ordering::Equal => {

@@ -41,7 +41,7 @@ fn main() {
 
         println!("Enter the corresponding number.");
 
-        let number = Projects::from_number(utils::get_number_i32() as u32);
+        let number = Projects::from_number(utils::get_input::<u32>());
 
         match number {
             Some(project) => {
