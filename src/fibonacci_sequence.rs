@@ -11,7 +11,7 @@ pub fn fibonacci_sequence() {
             numbers.push(1);
             println!("Iteration: {}\tValue: 1", i + 1);
         } else {
-            let value = numbers[i-2] + numbers[i-1];
+            let value = numbers[i - 2] + numbers[i - 1];
             numbers.push(value);
 
             println!("Iteration: {}\tValue: {}", i + 1, value);

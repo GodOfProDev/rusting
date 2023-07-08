@@ -11,7 +11,7 @@ enum Projects {
     Calculator = 1,
     GuessGame = 2,
     TemperatureConverter = 3,
-    FibonacciSequence = 4
+    FibonacciSequence = 4,
 }
 
 impl Projects {
