@@ -4,10 +4,12 @@ use std::process::Command;
 mod calculator;
 mod guess_game;
 mod utils;
+mod temperature_converter;
 
 enum Projects {
     Calculator = 1,
     GuessGame = 2,
+    TemperatureConverter = 3
 }
 
 impl Projects {
@@ -15,6 +17,7 @@ impl Projects {
         match value {
             1 => Some(Projects::Calculator),
             2 => Some(Projects::GuessGame),
+            3 => Some(Projects::TemperatureConverter),
             _ => {
                 None
             }
@@ -28,6 +31,7 @@ fn main() {
 
         println!("\t1.Calculator");
         println!("\t2.Guess Game");
+        println!("\t2.Temperature Converter");
 
         println!("Enter the corresponding number.");
 
@@ -44,6 +48,11 @@ fn main() {
                     Projects::GuessGame => {
                         clear_screen();
                         guess_game::guess_game();
+                        break;
+                    }
+                    Projects::TemperatureConverter => {
+                        clear_screen();
+                        temperature_converter::temperature_convertor();
                         break;
                     }
                 }
