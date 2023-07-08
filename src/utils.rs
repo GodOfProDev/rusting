@@ -1,27 +1,7 @@
 use std::io;
 use std::str::FromStr;
 
-pub trait ValidInputTrait: FromStr {}
-
-impl ValidInputTrait for u16 {}
-
-impl ValidInputTrait for u32 {}
-
-impl ValidInputTrait for u64 {}
-
-impl ValidInputTrait for i16 {}
-
-impl ValidInputTrait for i32 {}
-
-impl ValidInputTrait for i64 {}
-
-impl ValidInputTrait for f32 {}
-
-impl ValidInputTrait for f64 {}
-
-impl ValidInputTrait for String {}
-
-pub fn get_input<T: ValidInputTrait>() -> T {
+pub fn get_input<T: FromStr>() -> T {
     let mut input = String::new();
 
     io::stdin()
