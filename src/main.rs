@@ -3,9 +3,10 @@ use std::process::Command;
 
 mod calculator;
 mod guess_game;
-mod utils;
 mod temperature_converter;
 mod fibonacci_sequence;
+
+mod utils;
 
 enum Projects {
     Calculator = 1,
