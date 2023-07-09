@@ -30,6 +30,10 @@ impl Projects {
 }
 
 fn main() {
+    project_selection();
+}
+
+fn project_selection() {
     loop {
         println!("Which project you would like to use?");
 
