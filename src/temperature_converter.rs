@@ -5,7 +5,10 @@ pub fn temperature_convertor() {
         println!("Enter the unit you are using: ");
 
         let unit: String = utils::get_input();
-        let unit = unit.chars().nth(0).expect("Failed to read the input");
+        let unit = unit
+            .chars()
+            .next()
+            .expect("Failed to read the input");
 
         println!("Enter the temperature: ");
 

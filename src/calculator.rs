@@ -9,7 +9,7 @@ pub fn calculator() {
 
     let operator: char = utils::get_input::<String>()
         .chars()
-        .nth(0)
+        .next()
         .expect("There was an issue reading the operator");
 
     println!("Enter the second number: ");

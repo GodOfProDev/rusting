@@ -16,5 +16,5 @@ pub fn get_input<T: FromStr>() -> T {
         }
     };
 
-    return input;
+    input
 }
