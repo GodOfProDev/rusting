@@ -1,12 +1,9 @@
 use std::io;
 use std::process::Command;
-
-mod calculator;
-mod guess_game;
-mod temperature_converter;
-mod fibonacci_sequence;
+use crate::projects::{calculator, fibonacci_sequence, guess_game, temperature_converter};
 
 mod utils;
+mod projects;
 
 enum Projects {
     Calculator = 1,
