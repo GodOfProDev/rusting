@@ -1,6 +1,6 @@
 use std::io;
 use std::process::Command;
-use crate::projects::{calculator, fibonacci_sequence, guess_game, temperature_converter};
+use crate::projects::{calculator, fibonacci_sequence, grep, guess_game, temperature_converter};
 
 mod utils;
 mod projects;
@@ -10,6 +10,7 @@ enum Projects {
     GuessGame = 2,
     TemperatureConverter = 3,
     FibonacciSequence = 4,
+    Grep = 5,
 }
 
 impl Projects {
@@ -19,6 +20,7 @@ impl Projects {
             2 => Some(Projects::GuessGame),
             3 => Some(Projects::TemperatureConverter),
             4 => Some(Projects::FibonacciSequence),
+            5 => Some(Projects::Grep),
             _ => {
                 None
             }
@@ -38,6 +40,7 @@ fn project_selection() {
         println!("\t2.Guess Game");
         println!("\t3.Temperature Converter");
         println!("\t4.Fibonacci Sequence");
+        println!("\t5.Grep");
 
         println!();
 
@@ -66,6 +69,11 @@ fn project_selection() {
                     Projects::FibonacciSequence => {
                         clear_screen();
                         fibonacci_sequence::fibonacci_sequence();
+                        break;
+                    }
+                    Projects::Grep => {
+                        clear_screen();
+                        grep::grep();
                         break;
                     }
                 }
